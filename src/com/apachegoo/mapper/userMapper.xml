@@ -2,7 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.apachegoo.mapper.UserMapper">
-	<select id="findAllUser" resultType="com.apachegoo.model.User">
-		select * from user
+	<resultMap type="com.apachegoo.model.User" id="userResultMap">
+		<id property="userId" column="user_id"></id>
+		<result property="userName" column="user_name"></result>
+		<result property="userPwd" column="user_pwd"></result>
+		<result property="userQq" column="user_qq"></result>
+		<result property="userEmail" column="user_email"></result>
+		<result property="userSex" column="user_sex"></result>
+		<result property="userSignature" column="user_signature"></result>
+	</resultMap>
+	<select id="findAllUser" resultMap="userResultMap">
+		SELECT
+			`user`.user_id,
+			`user`.user_name,
+			`user`.user_pwd,
+			`user`.user_qq,
+			`user`.user_email,
+			`user`.user_sex,
+			`user`.user_signature
+		FROM `user`
 	</select>
 </mapper>
