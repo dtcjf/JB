@@ -13,7 +13,7 @@
 <body>
 	<div class="table-responsive">
   <table class="table">
-    <caption><%=request.getAttribute("uName") %></caption>
+    <caption><%=request.getAttribute("uName") %><%=request.getAttribute("article") %></caption>
     <thead>
       <tr>
         <th>文章名</th>

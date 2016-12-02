@@ -7,5 +7,6 @@
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/apachegoo/mapper/userMapper.xml" />
+		<mapper resource="com/apachegoo/mapper/articleMapper.xml" />
 	</mappers>
 </configuration>

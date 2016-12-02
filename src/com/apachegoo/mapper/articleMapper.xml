@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.apachegoo.mapper.ArticleMapper">
+<mapper namespace="com.apachegoo.mapper.ArticleMapper" >
 	<resultMap type="com.apachegoo.model.Article" id="articleResultMap">
 		<id property="articleId" column="article_id"/>
 		<result property="articleCategory" column="article_category_id"/>
@@ -20,5 +20,19 @@
 			article.visitTime
 		FROM
 			article
+	</select>
+	<select id="queryArticle" parameterType="map" resultType="map">
+		SELECT
+			article_id,
+			article_category_id,
+			article_title,
+			updateTime,
+			visitTime
+		FROM
+			`article`
+		ORDER BY
+			article.article_id
+		LIMIT #{start},
+		#{num}
 	</select>
 </mapper>
