@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.apachegoo.mapper.AlbumMapper">
+	<resultMap type="com.apachegoo.model.Album" id="albumResultMap">
+		<id property="albumId" column="user_id"></id>
+		<result property="albumUserId" column="user_name"></result>
+		<result property="albumName" column="user_pwd"></result>
+		<result property="albumDesc" column="user_qq"></result>
+		<result property="createTime" column="user_email"></result>
+	</resultMap>
+	<select id="findAllAlbum" resultMap="albumResultMap">
+		SELECT
+			album.album_id,
+			album.album_user_id,
+			album.album_name,
+			album.album_desc,
+			album.create_time
+		FROM
+			album
+	</select>
+</mapper>
