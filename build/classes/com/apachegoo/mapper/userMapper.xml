@@ -10,6 +10,7 @@
 		<result property="userEmail" column="user_email"></result>
 		<result property="userSex" column="user_sex"></result>
 		<result property="userSignature" column="user_signature"></result>
+		<result property="userIsHost" column="user_is_host"></result>
 	</resultMap>
 	<select id="findAllUser" resultMap="userResultMap">
 		SELECT
@@ -20,6 +21,22 @@
 			`user`.user_email,
 			`user`.user_sex,
 			`user`.user_signature
+			`user`.user_is_host
 		FROM `user`
+	</select>
+	<select id="findBlogHost" resultMap="userResultMap">
+		SELECT
+			`user`.user_id,
+			`user`.user_name,
+			`user`.user_pwd,
+			`user`.user_qq,
+			`user`.user_email,
+			`user`.user_sex,
+			`user`.user_signature,
+			`user`.user_is_host
+		FROM
+			`user`
+		WHERE
+			`user`.user_is_host = 1
 	</select>
 </mapper>

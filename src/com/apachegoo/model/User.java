@@ -13,6 +13,15 @@ public class User {
 	private String userEmail;
 	private String userSex;
 	private String userSignature;
+	private String userIsHost;
+
+	public String getUserIsHost() {
+		return userIsHost;
+	}
+
+	public void setUserIsHost(String userIsHost) {
+		this.userIsHost = userIsHost;
+	}
 
 	public String getUserId() {
 		return userId;
@@ -72,7 +81,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", userPwd=" + userPwd + ", userQq=" + userQq + ", userEmail=" + userEmail + ", userSex=" + userSex + ", userSignature=" + userSignature + "]";
+		return "User [userId=" + userId + ", userName=" + userName + ", userPwd=" + userPwd + ", userQq=" + userQq + ", userEmail=" + userEmail + ", userSex=" + userSex + ", userSignature=" + userSignature + ", userIsHost=" + userIsHost + "]";
 	}
 
 }
