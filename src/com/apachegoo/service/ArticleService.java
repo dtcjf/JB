@@ -19,9 +19,7 @@ public class ArticleService {
 
 	/**
 	 * 分页获取文章列表
-	 * @param start
-	 * @param num
-	 * @param userId
+	 * @param params
 	 * @return
 	 */
 	public String getArticle(Map<String, Integer> params) {

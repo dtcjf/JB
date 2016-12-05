@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.apachegoo.mapper.CommentMapper">
+	<resultMap type="com.apachegoo.model.Comment" id="commentResultMap">
+		<id property="commentId" column="comment_id"></id>
+		<result property="commentContent" column="comment_content"></result>
+		<result property="commentUserId" column="comment_user_id"></result>
+		<result property="commentArticleId" column="comment_article_id"></result>
+		<result property="commentTime" column="comment_time"></result>
+	</resultMap>
+	<select id="findAllComment" resultMap="commentResultMap">
+		SELECT
+			`comment`.comment_id,
+			`comment`.comment_content,
+			`comment`.comment_user_id,
+			`comment`.comment_article_id,
+			`comment`.comment_time
+		FROM
+			`comment`
+	</select>
+</mapper>
