@@ -7,9 +7,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Bootstrap大法好</title>
-<!-- 对移动设备友好 -->
+<title>文章列表</title>
 <meta name="renderer" content="webkit">
+<!-- 对移动设备友好 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href=<%=request.getContextPath() %>/css/bootstrap.min.css rel="stylesheet">
 <script src=<%=request.getContextPath() %>/js/jquery-1.10.2.js></script>
@@ -21,10 +21,10 @@
 			});
 </script>
 </head>
-<body>
-	<div class="table-responsive">
-		<table class="table">
-			<caption><%=request.getAttribute("uName") %></caption>
+<body style="margin: 50px">
+	<div class="">
+		<table class="table table-striped table-responsive table-hover">
+			<caption><%=request.getAttribute("uName") %>的JB</caption>
 			<thead>
 				<tr>
 					<th>文章名</th>
