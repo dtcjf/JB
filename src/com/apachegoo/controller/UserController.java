@@ -31,10 +31,19 @@ public class UserController {
 	@RequestMapping(value = "/index")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) {
 		modelAndView.addAllObjects(userService.index());
-		Map<String, Integer> params = new HashMap<String, Integer>();
-		params.put("pageNo", 0);
-		params.put("num", 10);
+		Map<String, String> params = new HashMap<String, String>();
+		Object pagenum=request.getParameter("pagenum");
+		if (pagenum instanceof String) {
+			params.put("pageNo", (String)pagenum);
+			params.put("num", "10");
+			request.setAttribute("pageNo", pagenum);
+		}else {
+			params.put("pageNo", "1");
+			params.put("num", "10");
+			request.setAttribute("pageNo", "1");
+		}
 		modelAndView.addObject("article", articleService.getArticle(params));
+		request.setAttribute("total",articleService.getCount()%10>0?articleService.getCount()/10+1:articleService.getCount()/10);
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}

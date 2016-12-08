@@ -15,21 +15,54 @@
 <script src=<%=request.getContextPath() %>/js/jquery-1.10.2.js></script>
 <script src=<%=request.getContextPath() %>/js/bootstrap.min.js></script>
 <script>
-	$(document).ready(
-			function init() {
-				
-			});
+	function up(){
+		var pagenum=<%=request.getAttribute("pageNo")%>;
+		var address=new String("/user/index?pagenum=");
+		if(pagenum>1){
+			window.location.href=new String("/blog"+ address + (pagenum-1));
+		}else{
+			alert("没有上一页");
+		}
+	}
+	function down(){
+		var pagenum=<%=request.getAttribute("pageNo")%>;
+		var totalpage=<%=request.getAttribute("total")%>;
+		var address=new String("/user/index?pagenum=");
+		if(pagenum<totalpage){
+			window.location.href=new String("/blog"+ address + (pagenum+1));
+		}else{
+			alert("没有下一页");
+		}
+	}
 </script>
 </head>
-<body style="margin: 50px">
-	<div class="">
-		<table class="table table-striped table-responsive table-hover">
+<body style="margin-top: 50px">
+	<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav navbar-right" style="margin-top:0">
+				<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-list"></span> 日志</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 留言</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+			</ul>	
+		</div>
+	</div>
+</nav>
+		<table class="table table-striped table-hover">
 			<caption><%=request.getAttribute("uName") %>的JB</caption>
 			<thead>
 				<tr>
-					<th>文章名</th>
-					<th>日期</th>
-					<th>浏览次数</th>
+					<th style="width: 50%">文章名</th>
+					<th style="width: 30%">日期</th>
+					<th style="width: 20%">浏览</th>
 				</tr>
 			</thead>
 			<tbody id="arttbody">
@@ -42,6 +75,13 @@
 				</tr>
 				<%} %>
 			</tbody>
+			<tfoot>  
+				<tr>
+					<th><button class="btn upbtn" onclick="up()">上页</button></th>
+					<th>第<%=request.getAttribute("pageNo") %>页，共<%=request.getAttribute("total") %>页</th>
+					<th ><button class="btn downbtn" onclick="down()" >下页</button></th>
+				</tr>
+			</tfoot>
 		</table>
 	</div>
 </body>

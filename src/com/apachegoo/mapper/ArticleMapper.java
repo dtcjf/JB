@@ -12,4 +12,6 @@ public interface ArticleMapper {
 	public List<Article> findAllArticle();
 
 	public List<Map<String, String>> queryArticle(Map<String, Integer> params);
+	
+	public int getArticleCount();
 }

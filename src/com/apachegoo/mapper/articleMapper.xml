@@ -35,4 +35,7 @@
 		LIMIT #{start},
 		#{num}
 	</select>
+	<select id="getArticleCount" resultType="int">
+		select count(article_id) from article
+	</select>
 </mapper>

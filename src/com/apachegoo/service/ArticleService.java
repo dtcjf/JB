@@ -22,22 +22,27 @@ public class ArticleService {
 	 * @param params
 	 * @return
 	 */
-	public String getArticle(Map<String, Integer> params) {
+	public String getArticle(Map<String, String> params) {
 		Map<String, Integer> queryMap = new HashMap<String, Integer>();
-		if (0 != params.get("pageNo")) {
-			int start = (params.get("pageNo") - 1) * params.get("num");
+		
+		if (!"1".equals( params.get("pageNo"))) {
+			int start = (Integer.parseInt(params.get("pageNo")) - 1) * Integer.parseInt(params.get("num"));
 			queryMap.put("start", start);
-			queryMap.put("num", params.get("num"));
+			queryMap.put("num", Integer.parseInt(params.get("num")));
 			List<Map<String, String>> resultList = articleMapper.queryArticle(queryMap);
 			JSONArray jsonArray = JSONArray.fromObject(resultList);
 			return jsonArray.toString();
 		} else {
 			int start = 0;
 			queryMap.put("start", start);
-			queryMap.put("num", params.get("num"));
+			queryMap.put("num", Integer.parseInt(params.get("num")));
 			List<Map<String, String>> resultList = articleMapper.queryArticle(queryMap);
 			JSONArray jsonArray = JSONArray.fromObject(resultList);
 			return jsonArray.toString();
 		}
+	}
+	
+	public int getCount(){
+		return articleMapper.getArticleCount();
 	}
 }
