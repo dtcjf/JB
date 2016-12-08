@@ -28,6 +28,13 @@ public class UserController {
 		WebUtils.showJson(request, response, userService.findAllUser().toString());
 	}
 
+	/**
+	 * 查询文章列表，分页大小为10
+	 * @param request
+	 * @param response
+	 * @param modelAndView
+	 * @return
+	 */
 	@RequestMapping(value = "/index")
 	public ModelAndView index(HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) {
 		modelAndView.addAllObjects(userService.index());
