@@ -11,13 +11,13 @@
 <meta name="renderer" content="webkit">
 <!-- 对移动设备友好 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href=<%=request.getContextPath() %>/css/bootstrap.min.css rel="stylesheet">
+<link href=<%=request.getContextPath() %>/css/bootstrap.min.css rel="stylesheet" />
 <script src=<%=request.getContextPath() %>/js/jquery-1.10.2.js></script>
 <script src=<%=request.getContextPath() %>/js/bootstrap.min.js></script>
 <script>
 	function up(){
 		var pagenum=<%=request.getAttribute("pageNo")%>;
-		var address=new String("/user/index?pagenum=");
+		var address=new String("/index?pagenum=");
 		if(pagenum>1){
 			window.location.href=new String("/blog"+ address + (pagenum-1));
 		}else{
@@ -27,7 +27,7 @@
 	function down(){
 		var pagenum=<%=request.getAttribute("pageNo")%>;
 		var totalpage=<%=request.getAttribute("total")%>;
-		var address=new String("/user/index?pagenum=");
+		var address=new String("/index?pagenum=");
 		if(pagenum<totalpage){
 			window.location.href=new String("/blog"+ address + (pagenum+1));
 		}else{

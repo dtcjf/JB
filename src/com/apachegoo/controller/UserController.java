@@ -16,7 +16,6 @@ import com.apachegoo.service.UserService;
 import com.apachegoo.utils.WebUtils;
 
 @Controller
-@RequestMapping(value = "/user")
 public class UserController {
 	@Resource
 	public UserService userService;
