@@ -51,7 +51,6 @@ public class ArticleController {
 	//restful传递参数
 	@RequestMapping(value = "/article/{articleId}")
 	public ModelAndView article(@PathVariable String articleId,HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) {
-		System.out.println(articleId);
 		modelAndView.setViewName("article");
 		Article article= articleService.queryArticleById(Integer.parseInt(articleId));
 		modelAndView.addObject("article",article);
