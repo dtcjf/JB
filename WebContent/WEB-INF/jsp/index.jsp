@@ -69,7 +69,7 @@
 				<%JSONArray ja= JSONArray.fromObject(request.getAttribute("article")) ;
 				for(int i=0;i<ja.size();i++){%>
 				<tr>
-					<td><%= ((Map)ja.get(i)).get("article_title") %></td>
+					<td><a href=/blog/article/<%=((Map)(ja.get(i))).get("article_id") %> ><%= ((Map)ja.get(i)).get("article_title") %></a></td>
 					<td><%= ((Map)ja.get(i)).get("updateTime") %></td>
 					<td><%= ((Map)ja.get(i)).get("visitTime") %></td>
 				</tr>
