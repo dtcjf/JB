@@ -10,11 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.apachegoo.mapper.ArticleMapper;
+import com.apachegoo.model.Article;
 import com.apachegoo.service.ArticleService;
 
 @Controller
@@ -45,6 +47,14 @@ public class ArticleController {
 		} else {
 			return "error";
 		}
-
+	}
+	//restful传递参数
+	@RequestMapping(value = "/article/{articleId}")
+	public ModelAndView article(@PathVariable String articleId,HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) {
+		System.out.println(articleId);
+		modelAndView.setViewName("article");
+		Article article= articleService.queryArticleById(Integer.parseInt(articleId));
+		modelAndView.addObject("article",article);
+		return modelAndView;
 	}
 }

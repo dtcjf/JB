@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.apachegoo.mapper.ArticleMapper;
+import com.apachegoo.model.Article;
 
 import net.sf.json.JSONArray;
 
@@ -48,5 +49,9 @@ public class ArticleService {
 	
 	public int insertArticle(Map<String, String> params){
 		return articleMapper.insertArticle(params);
+	}
+	
+	public Article queryArticleById(int id){
+		return articleMapper.queryArticleById(id);
 	}
 }

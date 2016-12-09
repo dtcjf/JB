@@ -10,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href=<%=request.getContextPath() %>/css/font-awesome.css rel="stylesheet" />
 <link href=<%=request.getContextPath() %>/css/bootstrap.min.css  rel="stylesheet" />
-<link href=<%=request.getContextPath() %>/css/bootstrap-combined.no-icons.min.css  rel="stylesheet" />
 <script src=<%=request.getContextPath() %>/js/jquery-1.10.2.js></script>
 <script src=<%=request.getContextPath() %>/js/jquery.hotkeys.js></script>
 <script src=<%=request.getContextPath() %>/js/bootstrap.min.js></script>
@@ -58,25 +57,31 @@ $(function(){
     $("#pushBtn").click(function(){
     	var content=$('#editor').html();
     	var title=$("#title").val();
-    	var params={};
-    	params.title=title;
-    	params.content=content;
-   	  	$.ajax({
-   	  	  	url:"push",
-   	  	  	method:"post",
-   	  	  	data:params,
-   	  	  	dataType:"text",
-   	  	  	async:true,
-   	  	  	success: function(result){
-	   	  	  	var res = String($.trim(result)); 
-   	  	  		if(res=="success"){
-   	   	  	  		alert("发表成功");
-   	   	  	  		window.location.href=new String("/blog/index");
-   	   	  	  	}else{
-   	   	   	  	  	alert("1");
-   	   	   	  	}
-   	  	  	 }
-   	  	  	});
+    	if(content==""){
+        	alert("请输入内容");
+        }else if(title==""){
+        	alert("请输入标题");
+        }else{
+        	var params={};
+        	params.title=title;
+        	params.content=content;
+       	  	$.ajax({
+       	  	  	url:"push",
+       	  	  	method:"post",
+       	  	  	data:params,
+       	  	  	dataType:"text",
+       	  	  	async:true,
+       	  	  	success: function(result){
+    	   	  	  	var res = String($.trim(result)); 
+       	  	  		if(res=="success"){
+       	   	  	  		alert("发表成功");
+       	   	  	  		window.location.href=new String("/blog/index");
+       	   	  	  	}else{
+       	   	   	  	  	alert("1");
+       	   	   	  	}
+       	  	  	 }
+       	  	  	});
+        }
   	  });
   });
   
@@ -127,10 +132,29 @@ div[data-role="editor-toolbar"] {
 	
 </style>
 </head>
-<body>
+<body style="margin-top:50px">
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav navbar-right" style="margin-top:0">
+				<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-list"></span> 日志</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 留言</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+			</ul>	
+		</div>
+	</div>
+</nav>
 <div class="container">
   <div class="hero-unit" >
-  	<h2>编辑文章</h2>
+  <h3>编辑文章</h3>
   	 <div class="form-group">
   		<input type="text" class="form-control" id="title" placeholder="标题" style="height: 34px" />
   	</div>

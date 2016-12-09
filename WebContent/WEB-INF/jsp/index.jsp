@@ -36,7 +36,7 @@
 	}
 </script>
 </head>
-<body style="margin-top: 50px">
+<body style="margin: 50px">
 	<nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">

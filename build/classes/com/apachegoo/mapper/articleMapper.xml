@@ -60,4 +60,7 @@
 			1
 		)
 	</insert>
+	<select id="queryArticleById" parameterType="int" resultMap="articleResultMap">
+		SELECT * FROM  article WHERE article_id=#{id}
+	</select>
 </mapper>
