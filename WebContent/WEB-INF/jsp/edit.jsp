@@ -45,7 +45,41 @@ $(function(){
     initToolbarBootstrapBindings();  
     $('#editor').wysiwyg();
     window.prettyPrint && prettyPrint();
+
+    // 清空按钮
+    $("#clearBtn").click(function(){
+    	 $('#editor').text("");
+  	  });
+	  // 保存按钮
+    $("#saveBtn").click(function(){
+    	 
+    	  });
+	  // 发表按钮
+    $("#pushBtn").click(function(){
+    	var content=$('#editor').html();
+    	var title=$("#title").val();
+    	var params={};
+    	params.title=title;
+    	params.content=content;
+   	  	$.ajax({
+   	  	  	url:"push",
+   	  	  	method:"post",
+   	  	  	data:params,
+   	  	  	dataType:"text",
+   	  	  	async:true,
+   	  	  	success: function(result){
+	   	  	  	var res = String($.trim(result)); 
+   	  	  		if(res=="success"){
+   	   	  	  		alert("发表成功");
+   	   	  	  		window.location.href=new String("/blog/index");
+   	   	  	  	}else{
+   	   	   	  	  	alert("1");
+   	   	   	  	}
+   	  	  	 }
+   	  	  	});
+  	  });
   });
+  
 </script>
 <style>
 	/* this CSS is not part of the widget, it is here just as an example of the demo page styling.... Don't copy this one, roll your own. One
@@ -95,7 +129,11 @@ div[data-role="editor-toolbar"] {
 </head>
 <body>
 <div class="container">
-  <div class="hero-unit">
+  <div class="hero-unit" >
+  	<h2>编辑文章</h2>
+  	 <div class="form-group">
+  		<input type="text" class="form-control" id="title" placeholder="标题" style="height: 34px" />
+  	</div>
       <hr>
       <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
         <div class="btn-group">
@@ -151,9 +189,13 @@ div[data-role="editor-toolbar"] {
       </div>
 
       <div id="editor" contenteditable="true">
-        Go ahead…
+        	请输入内容
       </div>
+       <button class="btn btn-danger" style="margin-top:25px" id="clearBtn">清空</button>
+       <button class="btn pull-right btn-success" style="margin-top:25px" id="pushBtn">发表</button>
+       <button class="btn pull-right btn-primary" style="margin-top:25px;margin-right:25px" id="saveBtn">保存</button>
     </div>
   </div>
+  
 </body>
 </html>

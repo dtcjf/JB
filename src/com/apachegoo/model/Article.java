@@ -12,6 +12,15 @@ public class Article {
 	private String articleContent;
 	private String updateTime;
 	private String visitTime;
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public String getArticleId() {
 		return articleId;

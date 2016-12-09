@@ -45,4 +45,8 @@ public class ArticleService {
 	public int getCount(){
 		return articleMapper.getArticleCount();
 	}
+	
+	public int insertArticle(Map<String, String> params){
+		return articleMapper.insertArticle(params);
+	}
 }

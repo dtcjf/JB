@@ -14,4 +14,6 @@ public interface ArticleMapper {
 	public List<Map<String, String>> queryArticle(Map<String, Integer> params);
 	
 	public int getArticleCount();
+	
+	public int insertArticle(Map<String, String> params);
 }

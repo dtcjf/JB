@@ -9,6 +9,7 @@
 		<result property="articleContent" column="article_content"/>
 		<result property="updateTime" column="updateTime"/>
 		<result property="visitTime" column="visitTime"/>
+		<result property="status" column="status"/>
 	</resultMap>
 	<select id="findAllArticle" resultMap="articleResultMap">
 		SELECT
@@ -17,9 +18,11 @@
 			article.article_title,
 			article.article_content,
 			article.updateTime,
-			article.visitTime
+			article.visitTime,
+			article.status
 		FROM
 			article
+		where article.status=1
 	</select>
 	<select id="queryArticle" parameterType="map" resultType="map">
 		SELECT
@@ -28,14 +31,33 @@
 			article_title,
 			updateTime,
 			visitTime
-		FROM
-			`article`
+		FROM `article`
+		where article.status = 1
 		ORDER BY
 			article.article_id
 		LIMIT #{start},
 		#{num}
 	</select>
 	<select id="getArticleCount" resultType="int">
-		select count(article_id) from article
+		select count(article_id) from article where article.status=1
 	</select>
+	
+	<insert id="insertArticle" parameterType="map">
+		INSERT INTO article (
+			article.article_category_id,
+			article.article_title,
+			article.article_content,
+			article.updateTime,
+			article.visitTime,
+			article.status
+		)
+		VALUES (
+			#{article_category_id},
+			#{article_title},
+			#{article_content},
+			#{updateTime},
+			#{visitTime},
+			1
+		)
+	</insert>
 </mapper>
