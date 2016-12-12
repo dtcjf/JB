@@ -28,7 +28,16 @@ public class UserService {
 			returnMap.put("uId", user.getUserId());
 			returnMap.put("uSignature", user.getUserSignature());
 		}
-
 		return returnMap;
+	}
+	
+	public boolean checkLogin(String... strings ){
+		User user=userMapper.findBlogHost();
+		if (strings[0].equals(user.getUserName())&&strings[1].equals(user.getUserPwd())) {
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 }

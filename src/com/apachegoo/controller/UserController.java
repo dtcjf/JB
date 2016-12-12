@@ -6,9 +6,11 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.apachegoo.service.ArticleService;
@@ -53,5 +55,46 @@ public class UserController {
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
+	
+ 	/**
+ 	 * 跳转到登录，返回login跳转到登录，返回forward，跳转到首页
+ 	 * @param request
+ 	 * @param response
+ 	 * @return
+ 	 */
+ 	@RequestMapping(value="/tologin")
+	public String toLogin(HttpServletRequest request, HttpServletResponse response){
+ 		HttpSession session=request.getSession();
+ 		if (session.getAttribute("jf")!=null) {
+			if ((boolean) session.getAttribute("jf")) {
+				return "forward:index";
+			}else{
+				return "login";
+			}
+		}else{
+			return "login";
+		}
+ 		
+ 	}
+ 	
+ 	/**
+ 	 * 登录blog
+ 	 * @param request
+ 	 * @param response
+ 	 * @return
+ 	 */
+ 	@RequestMapping(value="/login")
+ 	public @ResponseBody String login(HttpServletRequest request, HttpServletResponse response){
+ 		String userName=request.getParameter("username");
+ 		String password=request.getParameter("password");
+ 		if (userService.checkLogin(userName,password)) {
+ 			HttpSession session=request.getSession();
+ 			session.setAttribute("jf", true);
+ 			session.setMaxInactiveInterval(60*60);
+ 			return "success";
+		} else {
+			return "error";
+		}
+ 	}
 
 }
