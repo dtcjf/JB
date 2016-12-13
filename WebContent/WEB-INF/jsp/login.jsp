@@ -12,36 +12,39 @@
 <script src=<%=request.getContextPath() %>/js/jquery-1.10.2.js></script>
 <script src=<%=request.getContextPath() %>/js/bootstrap.min.js></script>
 <script>
-	function login(){
-		var username=$("#username").val();
-		var password=$("#password").val();
-		if(username==""){
-			alert("用户名不能为空");
-			return ;
-		}
-		if(password==""){
-			alert("密码不能为空");
-			return ;
-		}
-		var params={};
-		params.username=username;
-		params.password=password;
-		$.ajax({
-			url:"login",
-			data:params,
-			type:"POST",
-			dataType:"text",
-			async:true,
-			success:function(data){
-				if(data=="success"){
-					window.location.href="/blog/index";
-				}
-				if(data=="error"){
-					alert("用户名或密码错误");
-				}
+	
+	$(function (){
+		$("#confirm").click(function login(){
+			var username=$("#username").val();
+			var password=$("#password").val();
+			if(username==""){
+				alert("用户名不能为空");
+				return ;
 			}
-			});
-	}
+			if(password==""){
+				alert("密码不能为空");
+				return ;
+			}
+			var params={};
+			params.username=username;
+			params.password=password;
+			$.ajax({
+				url:"login",
+				data:params,
+				type:"POST",
+				dataType:"text",
+				async:true,
+				success:function(data){
+					if(data=="success"){
+						window.location.href="/blog/index";
+					}
+					if(data=="error"){
+						alert("用户名或密码错误");
+					}
+				}
+				});
+		});
+	});
 </script>
 </head>
 <body style="margin: 50px">
@@ -61,13 +64,16 @@
 				<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 留言</a></li>
 				<li class="active"><a href="/blog/tologin"><span class="glyphicon  glyphicon-user"></span> 登录</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+				<% if((request.getSession().getAttribute("jf"))!=null){ %>
+				<li><a href="/blog/edit"><span class="glyphicon glyphicon-pencil"></span> 编辑</a></li>
+				<%} %>
 			</ul>	
 		</div>
 	</div>
 </nav>
 <div class="clearfix"></div>
 <div class="container">
-	<form id="" onsubmit="login()" class="form-horizontal">
+	<form id="" class="form-horizontal">
 	<div class="row"  style="margin-top:50px">
 		<div class="input-group col-sm-12">
 			<label class="col-sm-2 control-label">用户名</label>
@@ -87,7 +93,7 @@
 		<div class="row" style="margin-top:50px" >
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
-				<button class="btn btn-info btn-block col-sm-8">确认</button>
+				<input type="button" id="confirm" class="btn btn-info btn-block col-sm-8" value="确认" />
 			</div>
 			<div class="col-sm-2"></div>
 		</div>
