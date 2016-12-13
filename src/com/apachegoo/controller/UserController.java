@@ -96,5 +96,10 @@ public class UserController {
 			return "error";
 		}
  	}
+ 	
+ 	@RequestMapping(value="")
+ 	public String shouye(){
+ 		return "forward:index";
+ 	}
 
 }
