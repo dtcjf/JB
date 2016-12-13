@@ -40,4 +40,8 @@ public class UserService {
 		}
 		
 	}
+	
+	public User queryUserByUserId(String userId){
+		return userMapper.queryUserByUserId(userId);
+	}
 }

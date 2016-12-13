@@ -49,7 +49,7 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav navbar-right" style="margin-top:0">
 				<li class="active"><a href="/blog/index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-list"></span> 日志</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-list"></span> 相册</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 留言</a></li>
 				<li><a href="/blog/tologin"><span class="glyphicon  glyphicon-user"></span> 登录</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>

@@ -8,5 +8,6 @@
 	<mappers>
 		<mapper resource="com/apachegoo/mapper/userMapper.xml" />
 		<mapper resource="com/apachegoo/mapper/articleMapper.xml" />
+		<mapper resource="com/apachegoo/mapper/commentMapper.xml" />
 	</mappers>
 </configuration>

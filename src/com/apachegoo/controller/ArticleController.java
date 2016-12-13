@@ -3,6 +3,7 @@ package com.apachegoo.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,12 +18,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.apachegoo.mapper.ArticleMapper;
 import com.apachegoo.model.Article;
+import com.apachegoo.model.Comment;
 import com.apachegoo.service.ArticleService;
+import com.apachegoo.service.CommentService;
 
 @Controller
 public class ArticleController {
 	@Resource
 	private ArticleService articleService;
+	@Resource
+	private CommentService commentService;
 
 	@RequestMapping(value = "/edit")
 	public ModelAndView edit(HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) {
@@ -53,7 +58,9 @@ public class ArticleController {
 	public ModelAndView article(@PathVariable String articleId,HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) {
 		modelAndView.setViewName("article");
 		Article article= articleService.queryArticleById(Integer.parseInt(articleId));
+		List<Comment> comments= commentService.queryCommentByArticleId(Integer.parseInt(articleId));
 		modelAndView.addObject("article",article);
+		modelAndView.addObject("comment", comments);
 		return modelAndView;
 	}
 }
