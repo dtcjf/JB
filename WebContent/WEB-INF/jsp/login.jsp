@@ -63,7 +63,7 @@
 				<li><a href="#"><span class="glyphicon glyphicon-list"></span> 相册</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 留言</a></li>
 				<li class="active"><a href="/blog/tologin"><span class="glyphicon  glyphicon-user"></span> 登录</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+				<li><a href="/blog/about"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
 				<% if((request.getSession().getAttribute("jf"))!=null){ %>
 				<li><a href="/blog/edit"><span class="glyphicon glyphicon-pencil"></span> 编辑</a></li>
 				<%} %>

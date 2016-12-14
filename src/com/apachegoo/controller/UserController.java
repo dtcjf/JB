@@ -101,5 +101,10 @@ public class UserController {
  	public String shouye(){
  		return "forward:index";
  	}
+ 	
+ 	@RequestMapping(value="/about")
+ 	public String about(){
+ 		return "about";
+ 	}
 
 }
