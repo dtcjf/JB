@@ -54,4 +54,8 @@ public class ArticleService {
 	public Article queryArticleById(int id){
 		return articleMapper.queryArticleById(id);
 	}
+	
+	public void plusVisitTime(int id){
+		 articleMapper.plusVisitTime(id);
+	}
 }

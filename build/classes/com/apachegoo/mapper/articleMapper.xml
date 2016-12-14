@@ -63,4 +63,10 @@
 	<select id="queryArticleById" parameterType="int" resultMap="articleResultMap">
 		SELECT * FROM  article WHERE article_id=#{id}
 	</select>
+	<update id="plusVisitTime" parameterType="int">
+		UPDATE article
+		SET article.visitTime = article.visitTime + 1
+		WHERE
+			article.article_id =#{id}
+	</update>
 </mapper>

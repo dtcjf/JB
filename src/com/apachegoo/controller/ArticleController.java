@@ -58,6 +58,7 @@ public class ArticleController {
 	public ModelAndView article(@PathVariable String articleId,HttpServletRequest request, HttpServletResponse response, ModelAndView modelAndView) {
 		modelAndView.setViewName("article");
 		Article article= articleService.queryArticleById(Integer.parseInt(articleId));
+		articleService.plusVisitTime(Integer.parseInt(articleId));
 		List<Comment> comments= commentService.queryCommentByArticleId(Integer.parseInt(articleId));
 		modelAndView.addObject("article",article);
 		modelAndView.addObject("comment", comments);

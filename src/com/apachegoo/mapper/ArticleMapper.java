@@ -18,4 +18,6 @@ public interface ArticleMapper {
 	public int insertArticle(Map<String, String> params);
 	
 	public Article queryArticleById(int id);
+	
+	public int plusVisitTime(int id);
 }
