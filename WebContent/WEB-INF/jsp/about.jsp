@@ -36,5 +36,152 @@
 		</div>
 	</div>
 </nav>
+<div class="container" style="margin-top: 50px">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="carousel slide" id="carousel-350270">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-350270">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-350270">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-350270">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img alt="" src="/blog/img/1.jpg" style="margin:0 auto"/>
+						<div class="carousel-caption">
+							<h4>
+							</h4>
+							<p>
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="/blog/img/2.jpg"  style="margin:0 auto"/>
+						<div class="carousel-caption">
+							<h4>
+							</h4>
+							<p>
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" src="/blog/img/3.jpg"  style="margin:0 auto"/>
+						<div class="carousel-caption">
+							<h4>
+								
+							</h4>
+							<p>
+							</p>
+						</div>
+					</div>
+				</div> <a class="left carousel-control" href="#carousel-350270" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-350270" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix" style="margin-top: 50px">
+		<div class="col-md-4 column">
+			<dl>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+			</dl>
+		</div>
+		<div class="col-md-4 column">
+			<dl>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+			</dl>
+		</div>
+		<div class="col-md-4 column">
+			<dl>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+				<dt>
+					我也不知道写什么
+				</dt>
+				<dd>
+					我也不知道写什么
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column text-center">
+			 <address> <strong>Powered By Twitter, Inc.</strong></address>
+		</div>
+	</div>
+</div>
+
 </body>
 </html>
