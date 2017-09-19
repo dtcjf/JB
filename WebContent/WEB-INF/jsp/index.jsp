@@ -29,7 +29,7 @@
 		var totalpage=<%=request.getAttribute("total")%>;
 		var address=new String("/index?pagenum=");
 		if(pagenum<totalpage){
-			window.location.href=new String("/blog"+ address + (pagenum+1));
+			window.location.href=new String("<%= request.getContextPath()%>"+ address + (pagenum+1));
 		}else{
 			alert("没有下一页");
 		}
@@ -48,13 +48,13 @@
 		</div>
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav navbar-right" style="margin-top:0">
-				<li class="active"><a href="/blog/index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+				<li class="active"><a href="<%= request.getContextPath()%>/index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-list"></span> 相册</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-fire"></span> 留言</a></li>
-				<li><a href="/blog/tologin"><span class="glyphicon  glyphicon-user"></span> 登录</a></li>
-				<li><a href="/blog/about"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+				<li><a href="<%= request.getContextPath()%>/tologin"><span class="glyphicon  glyphicon-user"></span> 登录</a></li>
+				<li><a href="<%= request.getContextPath()%>/about"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
 				<% if((request.getSession().getAttribute("jf"))!=null){ %>
-				<li><a href="/blog/edit"><span class="glyphicon glyphicon-pencil"></span> 编辑</a></li>
+				<li><a href="<%= request.getContextPath()%>/edit"><span class="glyphicon glyphicon-pencil"></span> 编辑</a></li>
 				<%} %>
 			</ul>	
 		</div>
@@ -73,7 +73,7 @@
 				<%JSONArray ja= JSONArray.fromObject(request.getAttribute("article")) ;
 				for(int i=0;i<ja.size();i++){%>
 				<tr>
-					<td><a href=/blog/article/<%=((Map)(ja.get(i))).get("article_id") %> ><%= ((Map)ja.get(i)).get("article_title") %></a></td>
+					<td><a href=<%= request.getContextPath()%>/article/<%=((Map)(ja.get(i))).get("article_id") %> ><%= ((Map)ja.get(i)).get("article_title") %></a></td>
 					<td><%= ((Map)ja.get(i)).get("updateTime") %></td>
 					<td><%= ((Map)ja.get(i)).get("visitTime") %></td>
 				</tr>
