@@ -1,5 +1,7 @@
 package com.apachegoo.model;
 
+import java.sql.Blob;
+
 /**
  * 文章实体类
  * @author Administrator

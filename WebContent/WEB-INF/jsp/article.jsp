@@ -5,6 +5,7 @@
 <%@page import="com.apachegoo.model.Comment" %>
 <%@page import="java.util.List" %>
 <%@page import="com.apachegoo.model.Article" %>
+<%@ page import="java.sql.Blob" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -75,13 +76,17 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right" style="margin-top:0">
-                <li><a href="<%= request.getContextPath()%>/index"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                <li><a href="<%= request.getContextPath()%>/index"><span class="glyphicon glyphicon-home"></span> 首页</a>
+                </li>
                 <li><a href="#"><span class="glyphicon glyphicon-list"></span> 相册</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-fire"></span> 留言</a></li>
-                <li><a href="<%= request.getContextPath()%>/tologin"><span class="glyphicon  glyphicon-user"></span> 登录</a></li>
-                <li><a href="<%= request.getContextPath()%>/about"><span class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+                <li><a href="<%= request.getContextPath()%>/tologin"><span class="glyphicon  glyphicon-user"></span> 登录</a>
+                </li>
+                <li><a href="<%= request.getContextPath()%>/about"><span
+                        class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
                 <% if ((request.getSession().getAttribute("jf")) != null) { %>
-                <li><a href="<%= request.getContextPath()%>/edit"><span class="glyphicon glyphicon-pencil"></span> 编辑</a></li>
+                <li><a href="<%= request.getContextPath()%>/edit"><span class="glyphicon glyphicon-pencil"></span>
+                    编辑</a></li>
                 <%} %>
             </ul>
         </div>
@@ -95,7 +100,11 @@
             </h3>
             <hr>
             <p>
-                <%=((Article) request.getAttribute("article")).getArticleContent() %>
+                <%
+                    String content="";
+                    content = (((Article) request.getAttribute("article")).getArticleContent());
+                %>
+                <%= content %>
             </p>
             <hr>
         </div>
@@ -106,7 +115,11 @@
             <hr>
         </div>
     </div>
-    <% List<Comment> comments = (List<Comment>) request.getAttribute("comment");
+    <%
+        try {
+        } catch (Exception e) {
+        }
+        List<Comment> comments = (List<Comment>) request.getAttribute("comment");
         if (comments.size() != 0) {
             ServletContext sc = this.getServletContext();
             for (Comment c : comments) {

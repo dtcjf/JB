@@ -39,7 +39,7 @@ public class ArticleController {
 	public @ResponseBody String push(HttpServletRequest request, HttpServletResponse response) {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, Object> params = new HashMap<String, Object>();
 		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date=new Date();
 		params.put("article_category_id", "0");
